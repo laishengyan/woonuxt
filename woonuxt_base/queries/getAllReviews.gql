@@ -1,0 +1,25 @@
+query getAllReviews {
+  comments {
+    nodes {
+      id
+      content
+      date
+      author {
+        node {
+          name
+          email
+        }
+      }
+      commentedOn {
+        node {
+          ... on Post {
+            title
+          }
+          ... on Product {
+            name
+          }
+        }
+      }
+    }
+  }
+}

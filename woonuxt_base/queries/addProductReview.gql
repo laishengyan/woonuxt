@@ -1,0 +1,8 @@
+mutation SubmitValidReview($authorName: String, $content: String, $email: String, $images: [String], $productId: Int, $rating: Int) {
+  submitPhotoReview(
+    input: {productId: $productId, content: $content, email: $email, authorName: $authorName, rating: $rating, images: $images}
+  ) {
+    success
+    message
+  }
+}

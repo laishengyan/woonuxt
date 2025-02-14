@@ -1,0 +1,4 @@
+query getLang {
+  currentLanguage
+  availableLanguages
+}
