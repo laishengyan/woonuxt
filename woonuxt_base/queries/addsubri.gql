@@ -1,8 +1,0 @@
-mutation addsubri($email: String, $firstName: String, $listIds: [Int] = [3]) {
-  mailpoetSubscribe(
-    input: {email: $email, listIds: $listIds, firstName: $firstName}
-  ) {
-    success
-    message
-  }
-}
