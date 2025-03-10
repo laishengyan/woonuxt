@@ -1,0 +1,70 @@
+query getProduct($slug: ID!, $language: LanguageCodeEnum = EN) {
+  product(id: $slug, idType: SLUG) {
+    name
+    type
+    databaseId
+    id
+    slug
+    sku
+    description
+    allLanguageSlugs {
+      code
+      slug
+    }
+    rawDescription: description(format: RAW)
+    shortDescription
+    attributes {
+      nodes {
+        variation
+        name
+        id
+        options
+        label
+        scope
+        ... on GlobalProductAttribute {
+          slug
+          terms {
+            nodes {
+              name
+              slug
+              taxonomyName
+              databaseId
+            }
+          }
+        }
+      }
+    }
+    productCategories {
+      nodes {
+        databaseId
+        slug
+        name
+        count
+      }
+    }
+    ...Terms
+    ...SimpleProduct
+    ...VariableProduct
+    related(first: 6, where: {minPrice: 0, language: $language}) {
+      nodes {
+        name
+        slug
+        shortDescription
+        ...SimpleProduct
+      }
+    }
+    productReviews {
+      id
+      databaseId
+      content
+      authorName
+      authorEmail
+      rating
+      date
+      images {
+        sourceUrl
+        altText
+      }
+    }
+  }
+}

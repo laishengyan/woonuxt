@@ -1,0 +1,17 @@
+query postBy($language: LanguageCodeEnum = EN, $postId: Int = 817) {
+  postBy(postId: $postId) {
+    translation(language: $language) {
+      author {
+        node {
+          name
+        }
+      }
+      content
+      date
+      title
+      id
+      databaseId
+      slug
+    }
+  }
+}

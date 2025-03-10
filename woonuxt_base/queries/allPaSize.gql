@@ -1,0 +1,8 @@
+query allPaSize($language: LanguageCodeFilterEnum = EN) {
+  allPaSize(where: {language: $language}) {
+    nodes {
+      name
+      slug
+    }
+  }
+}

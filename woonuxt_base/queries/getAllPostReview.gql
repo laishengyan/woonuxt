@@ -1,0 +1,20 @@
+query GetComments($postId: Int) {
+  getComments(postId: $postId) {
+    id
+    content
+    authorName
+    email
+    images
+    postId
+    post {  # 关联文章信息
+      id
+      slug
+      title
+      allLanguageSlugs {
+        slug
+        code
+        title
+      }
+    }
+  }
+}

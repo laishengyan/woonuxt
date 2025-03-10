@@ -1,0 +1,8 @@
+query page($pageId: Int!, $language: LanguageCodeEnum = EN) {
+  pageBy(pageId: $pageId) {
+    translation(language: $language) {
+      content
+      title
+    }
+  }
+}

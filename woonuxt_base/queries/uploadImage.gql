@@ -1,0 +1,6 @@
+mutation uploadImage($file: String = "") {
+  uploadImage(input: {file: $file}) {
+    success
+    url
+  }
+}

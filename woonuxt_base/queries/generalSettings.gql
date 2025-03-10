@@ -1,0 +1,6 @@
+query generalSettings{
+  generalSettings {
+    title
+    description
+  }
+}

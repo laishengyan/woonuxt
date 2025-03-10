@@ -1,0 +1,28 @@
+query getProducts($after: String, $slug: [String], $first: Int = 9999, $orderby: [ProductsOrderbyInput] = {field: DATE, order: DESC}, $language: LanguageCodeEnum = EN) {
+  products(
+    first: $first
+    after: $after
+    where: {categoryIn: $slug, typeNotIn: EXTERNAL, visibility: VISIBLE, minPrice: 0, orderby: $orderby, status: "publish", language: $language}
+  ) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      name
+      onSale
+      slug
+      type
+      databaseId
+      id
+      description
+      shortDescription
+      averageRating
+      reviewCount
+      ...Terms
+      ...ProductCategories
+      ...SimpleProduct
+      ...VariableProduct
+    }
+  }
+}

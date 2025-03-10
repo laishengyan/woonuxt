@@ -1,0 +1,21 @@
+query getPostData($id: ID!, $language: LanguageCodeEnum = EN) {
+  post(id: $id, idType: SLUG) {
+    translation(language: $language) {
+      author {
+        node {
+          name
+        }
+      }
+      content
+      date
+      title
+      id
+      databaseId
+      slug
+      allLanguageSlugs {
+        code
+        slug
+      }
+    }
+  }
+}

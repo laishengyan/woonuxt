@@ -1,0 +1,11 @@
+query productCategory($idType: ProductCategoryIdType = SLUG, $slug: ID!, $language: LanguageCodeEnum = EN) {
+  productCategory(id: $slug, idType: $idType) {
+    translation(language: $language) {
+      description
+      allLanguageSlugs {
+        code
+        slug
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+query GetAllPosts($languages: [LanguageCodeEnum!] = EN, $first: Int) {
+  posts(
+    where: {orderby: {field: DATE, order: DESC}, languages: $languages}
+    first: $first
+  ) {
+    nodes {
+      id
+      title
+      content
+      date
+      slug
+      excerpt
+      author {
+        node {
+          name
+        }
+      }
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+mutation CreatePhotoReview($author: String, $authorEmail: String, $content: String, $photos: [String], $postId: Int) {
+  createPhotoReview(
+    input: {content: $content, postId: $postId, author: $author, authorEmail: $authorEmail, photos: $photos}
+  ) {
+    success
+    message
+  }
+}

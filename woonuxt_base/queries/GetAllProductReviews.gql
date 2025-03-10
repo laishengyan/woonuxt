@@ -1,0 +1,27 @@
+query GetAllProductReviews {
+  allProductReviews {
+    id
+    databaseId
+    content
+    authorName
+    authorEmail
+    rating
+    status
+    date
+    images {
+      sourceUrl
+      altText
+    }
+    product {
+      id
+      databaseId
+      name
+      slug
+      allLanguageSlugs {
+        slug
+        code
+        title
+      }
+    }
+  }
+}
