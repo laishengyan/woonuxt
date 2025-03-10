@@ -17,7 +17,7 @@
     current: { type: Number, default: 1 }
   })
   const allPage = ref(0)
-  watch(total, (newVal) => {
+  watch(() => total, (newVal) => {
     allPage.value = Math.ceil(newVal / 10)
   })
   onMounted(() => {
